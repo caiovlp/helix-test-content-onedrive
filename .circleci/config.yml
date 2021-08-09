@@ -41,7 +41,7 @@ commands:
       - run:
           name: Installing Dependencies
           command: npm ci
-          working_directory: .circleci/smoketester
+          working_directory: .tests
 
 jobs:
   build:
@@ -50,10 +50,10 @@ jobs:
       - setup
 
 #
-#  init_smoketests:
-#    executor: node12
-#    steps:
-#      - setup
+  init_smoketests:
+    executor: node12
+    steps:
+      - setup
 #      - run:
 #          name: Installing Helix CLI
 #          command: npm install @adobe/helix-cli@">=5" --save=false
@@ -142,11 +142,11 @@ jobs:
 #      - store_test_results:
 #          path: junit
 #
-#      - persist_to_workspace:
-#          root: /home/circleci
-#          paths:
-#            - project
-#            - .npm
+      - persist_to_workspace:
+          root: /home/circleci
+          paths:
+            - project
+            - .npm
 
 #  run_smoketests:
 #    executor: node12
@@ -224,8 +224,8 @@ jobs:
             default: index.html
             description: the index page to be tested
     steps:
-#      - attach_workspace:
-#          at: /home/circleci
+      - attach_workspace:
+          at: /home/circleci
 
 #      - run:
 #          name: Load environment variables
@@ -243,7 +243,7 @@ jobs:
             TEST_BRANCH=<< parameters.branch >>
             TEST_INDEX=<< parameters.index >>
             npm run test -- --reporter mocha-junit-reporter
-          working_directory: .circleci/smoketester
+          working_directory: .tests
 
       - store_test_results:
           path: junit
@@ -309,18 +309,17 @@ workflows:
   version: 2
   tests:
     jobs:
-    - build
-#    - init_smoketests:
-#        context: Project Helix
-#        requires:
-#            - build
+    - init_smoketests:
+        context: Project Helix
+        requires:
+            - build
 #    - run_generic_smoketests:
 #        name: adobe/helix-pages
 #        owner: adobe
 #        repo: helix-pages
 #        branch: $CIRCLE_BRANCH
 #        requires:
-#            - build
+#            - init_smoketests
 #    - run_generic_smoketests:
 #        name: adobe/helix-example-basic#test-code
 #        owner: adobe
@@ -328,7 +327,7 @@ workflows:
 #        branch: test-code
 ##        script: test:smoke
 #        requires:
-#            - build
+#            - init_smoketests
 #    - run_generic_smoketests:
 #        name: adobe/theblog-tests
 #        owner: adobe
@@ -336,14 +335,14 @@ workflows:
 #        branch: main
 ##        script: test:smoke
 #        requires:
-#            - build
+#            - init_smoketests
     - run_generic_smoketests:
         name: adobe/spark-website
         owner: adobe
         repo: spark-website
         index: express/
         requires:
-            - build
+            - init_smoketests
 #    - run_diff_tests:
 #        requires:
 #            - init_smoketests
