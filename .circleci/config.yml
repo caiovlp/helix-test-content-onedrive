@@ -318,25 +318,23 @@ workflows:
 #        name: adobe/helix-pages
 #        owner: adobe
 #        repo: helix-pages
-#        branch: $CIRCLE_BRANCH
+##        branch: $CIRCLE_BRANCH
 #        requires:
 #            - init_smoketests
-#    - run_generic_smoketests:
-#        name: adobe/helix-example-basic#test-code
-#        owner: adobe
-#        repo: helix-example-basic
-#        branch: test-code
-##        script: test:smoke
-#        requires:
-#            - init_smoketests
-#    - run_generic_smoketests:
-#        name: adobe/theblog-tests
-#        owner: adobe
-#        repo: theblog-tests
-#        branch: main
-##        script: test:smoke
-#        requires:
-#            - init_smoketests
+    - run_generic_smoketests:
+        name: adobe/helix-example-basic#test-code
+        owner: adobe
+        repo: helix-example-basic
+        branch: test-code
+        requires:
+            - init_smoketests
+    - run_generic_smoketests:
+        name: adobe/theblog-tests
+        owner: adobe
+        repo: theblog-tests
+        branch: main
+        requires:
+            - init_smoketests
     - run_generic_smoketests:
         name: adobe/spark-website
         owner: adobe
