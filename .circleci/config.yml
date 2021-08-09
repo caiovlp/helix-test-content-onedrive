@@ -44,10 +44,10 @@ commands:
           working_directory: .tests
 
 jobs:
-  build:
-    executor: node12
-    steps:
-      - setup
+#  build:
+#    executor: node12
+#    steps:
+#      - setup
 
 #
   init_smoketests:
@@ -311,8 +311,8 @@ workflows:
     jobs:
     - init_smoketests:
         context: Project Helix
-        requires:
-            - build
+#        requires:
+#            - build
     - run_generic_smoketests:
         name: adobe/pages
         owner: adobe
