@@ -1,0 +1,18 @@
+{
+  "name": "smoketester",
+  "private": "true",
+  "version": "1.0.0",
+  "main": "generic-tester.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "mocha generic-tester.js -t 5000 --domain $TEST_DOMAIN --owner $TEST_OWNER --repo $TEST_REPO --branch $TEST_BRANCH --index $TEST_INDEX"
+  },
+  "dependencies": {
+    "chai": "4.3.4",
+    "chai-http": "4.3.0",
+    "jquery": "3.6.0",
+    "jsdom": "16.7.0",
+    "mocha": "9.0.3",
+    "yargs": "16.2.0"
+  }
+}
