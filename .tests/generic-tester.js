@@ -21,7 +21,7 @@ const { JSDOM } = require('jsdom');
 
 chai.use(chaiHttp);
 
-const coerce = (v) => (v.trim() ? v.trim() : undefined);
+const coerce = (v) => (v.trim() ? v.trim() : '');
 
 const argv = require('yargs') // eslint-disable-line
   .option('domain', {
@@ -68,9 +68,7 @@ describe('Generic smoke test runner - subdomain extraction and homepage content'
       .get(`/${argv.index}`)
       .then((res) => {
         expect(res).to.have.status(200);
-
         testHomePageContent(res.text);
-
         done();
       })
       .catch((err) => {

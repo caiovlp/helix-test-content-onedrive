@@ -322,17 +322,15 @@ workflows:
 #        requires:
 #            - init_smoketests
     - run_generic_smoketests:
-        name: adobe/helix-example-basic#test-code
+        name: adobe/pages
         owner: adobe
-        repo: helix-example-basic
-        branch: test-code
+        repo: pages
         requires:
             - init_smoketests
     - run_generic_smoketests:
         name: adobe/theblog-tests
         owner: adobe
         repo: theblog-tests
-        branch: main
         requires:
             - init_smoketests
     - run_generic_smoketests:
