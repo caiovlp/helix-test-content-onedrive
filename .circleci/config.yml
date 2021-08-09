@@ -224,8 +224,8 @@ jobs:
             default: index.html
             description: the index page to be tested
     steps:
-      - attach_workspace:
-          at: /home/circleci
+#      - attach_workspace:
+#          at: /home/circleci
 
 #      - run:
 #          name: Load environment variables
@@ -251,10 +251,10 @@ jobs:
       - store_artifacts:
           path: junit
 
-      - persist_to_workspace:
-          root: /home/circleci
-          paths:
-            - project/junit
+#      - persist_to_workspace:
+#          root: /home/circleci
+#          paths:
+#            - project/junit
 
 #  finalize_smoketests:
 #    executor: node12
@@ -314,33 +314,34 @@ workflows:
 #        context: Project Helix
 #        requires:
 #            - build
+#    - run_generic_smoketests:
+#        name: adobe/helix-pages
+#        owner: adobe
+#        repo: helix-pages
+#        branch: $CIRCLE_BRANCH
+#        requires:
+#            - build
+#    - run_generic_smoketests:
+#        name: adobe/helix-example-basic#test-code
+#        owner: adobe
+#        repo: helix-example-basic
+#        branch: test-code
+##        script: test:smoke
+#        requires:
+#            - build
+#    - run_generic_smoketests:
+#        name: adobe/theblog-tests
+#        owner: adobe
+#        repo: theblog-tests
+#        branch: main
+##        script: test:smoke
+#        requires:
+#            - build
     - run_generic_smoketests:
-        name: adobe/helix-pages
+        name: adobe/spark-website
         owner: adobe
-        repo: helix-pages
-        branch: $CIRCLE_BRANCH
-        requires:
-            - build
-    - run_generic_smoketests:
-        name: adobe/helix-example-basic#test-code
-        owner: adobe
-        repo: helix-example-basic
-        branch: test-code
-#        script: test:smoke
-        requires:
-            - build
-    - run_generic_smoketests:
-        name: adobe/theblog-tests
-        owner: adobe
-        repo: theblog-tests
-        branch: main
-#        script: test:smoke
-        requires:
-            - build
-    - run_generic_smoketests:
-        name: adobe/ferrumjsorg
-        owner: adobe
-        repo: ferrumjsorg
+        repo: spark-website
+        index: express/
         requires:
             - build
 #    - run_diff_tests:
