@@ -242,7 +242,7 @@ jobs:
             TEST_REPO=<< parameters.repo >>
             TEST_BRANCH=<< parameters.branch >>
             TEST_INDEX=<< parameters.index >>
-            npm run test -- --reporter mocha-junit-reporter
+            npm run test
           working_directory: .tests
 
       - store_test_results:

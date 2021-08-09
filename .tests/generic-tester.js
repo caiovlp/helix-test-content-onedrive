@@ -79,6 +79,6 @@ describe('Generic smoke test runner - subdomain extraction and homepage content'
   }
 
   it(`${argv.branch}--${argv.repo}--${argv.owner}.${argv.domain} test`, (done) => {
-    testHomePage(`${argv.branch}--${argv.repo}--${argv.owner}.${argv.domain}`, done);
+    testHomePage(`https://${argv.branch}--${argv.repo}--${argv.owner}.${argv.domain}`, done);
   });
 });
