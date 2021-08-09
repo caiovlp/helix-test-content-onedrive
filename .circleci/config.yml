@@ -227,12 +227,12 @@ jobs:
       - attach_workspace:
           at: /home/circleci
 
-      - run:
-          name: Load environment variables
-          command: |
-            cat env/TEST_DOMAIN >> $BASH_ENV
-            cat env/TEST_SERVICE >> $BASH_ENV
-            cat env/TEST_VERSION_LOCK >> $BASH_ENV
+#      - run:
+#          name: Load environment variables
+#          command: |
+#            cat env/TEST_DOMAIN >> $BASH_ENV
+#            cat env/TEST_SERVICE >> $BASH_ENV
+#            cat env/TEST_VERSION_LOCK >> $BASH_ENV
 
       - run:
           name: Run the smoke tests for << parameters.owner >>/<< parameters.repo >>

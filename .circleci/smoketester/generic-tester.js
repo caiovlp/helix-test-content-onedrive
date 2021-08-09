@@ -26,6 +26,7 @@ const coerce = (v) => (v.trim() ? v.trim() : undefined);
 const argv = require('yargs') // eslint-disable-line
   .option('domain', {
     type: 'string',
+    default: 'hlx3.page',
     description: 'Domain name to run the smoke test against',
     coerce,
   })
@@ -41,13 +42,13 @@ const argv = require('yargs') // eslint-disable-line
   })
   .option('branch', {
     type: 'string',
-    default: 'master',
+    default: 'main',
     description: 'Git branch',
     coerce,
   })
   .option('index', {
     type: 'string',
-    default: 'index.html',
+    default: '',
     description: 'Site homepage',
     coerce,
   })
