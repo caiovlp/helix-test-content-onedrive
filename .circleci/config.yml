@@ -309,6 +309,7 @@ workflows:
   version: 2
   tests:
     jobs:
+    - build
     - init_smoketests:
         context: Project Helix
         requires:
