@@ -309,7 +309,6 @@ workflows:
   version: 2
   tests:
     jobs:
-    - build
     - init_smoketests:
         context: Project Helix
         requires:
@@ -321,9 +320,9 @@ workflows:
         requires:
             - init_smoketests
     - run_generic_smoketests:
-        name: adobe/theblog-tests
+        name: adobe/theblog
         owner: adobe
-        repo: theblog-tests
+        repo: theblog
         requires:
             - init_smoketests
     - run_generic_smoketests:
