@@ -221,6 +221,7 @@ jobs:
             description: the branch of the git repo to run the smoke tests against
         index:
             type: string
+            default: /
             description: the index page to be tested
     steps:
       - attach_workspace:
@@ -329,7 +330,7 @@ workflows:
         name: adobe/spark-website
         owner: adobe
         repo: spark-website
-        index: express/
+        index: /express/
         requires:
             - init_smoketests
 #    - run_diff_tests:

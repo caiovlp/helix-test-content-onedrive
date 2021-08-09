@@ -48,7 +48,7 @@ const argv = require('yargs') // eslint-disable-line
   })
   .option('index', {
     type: 'string',
-    default: '',
+    default: '/',
     description: 'Site homepage',
     coerce,
   })
@@ -65,7 +65,7 @@ describe('Generic smoke test runner - subdomain extraction and homepage content'
 
   function testHomePage(url, done) {
     chai.request(url)
-      .get(`/${argv.index}`)
+      .get(`${argv.index}`)
       .then((res) => {
         expect(res).to.have.status(200);
         testHomePageContent(res.text);
