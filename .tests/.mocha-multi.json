@@ -1,6 +1,6 @@
 {
     "reporterEnabled": "spec,xunit",
-    "xunitReporterOptions": {
+    "__xunitReporterOptions": {
         "output": "../junit/test-results.xml"
     }
 }
