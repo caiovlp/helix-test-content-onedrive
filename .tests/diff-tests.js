@@ -27,7 +27,7 @@ const { fetch } = fetchContext;
 const testDomain = process.env.TEST_DOMAIN || 'hlx3.page';
 const testVersionLock = process.env.TEST_VERSION_LOCK;
 
-const htmlDumpsFolder = path.join(__dirname, '..', process.env.TEST_FAILURE_HTML_DUMP_FOLDER || 'htmldumps');
+const htmlDumpsFolder = process.env.TEST_FAILURE_HTML_DUMP_FOLDER || path.join(__dirname, '..', 'junit', 'htmldumps');
 
 const origOpts = {
   cache: 'no-store',
