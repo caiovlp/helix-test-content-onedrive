@@ -251,10 +251,10 @@ jobs:
       - store_artifacts:
           path: junit
 
-#      - persist_to_workspace:
-#          root: /home/circleci
-#          paths:
-#            - project/junit
+      - persist_to_workspace:
+          root: /home/circleci
+          paths:
+            - project/junit
 
   finalize_smoketests:
     executor: node12

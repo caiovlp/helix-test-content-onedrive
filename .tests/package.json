@@ -5,8 +5,8 @@
   "main": "generic-tester.js",
   "license": "Apache-2.0",
   "scripts": {
-    "test": "mocha generic-tester.js -t 5000 --domain $TEST_DOMAIN --owner $TEST_OWNER --repo $TEST_REPO --branch $TEST_BRANCH --index $TEST_INDEX",
-    "test:diff": "mocha diff.test.js -t 5000 --domain $TEST_DOMAIN --owner $TEST_OWNER --repo $TEST_REPO --branch $TEST_BRANCH --index $TEST_INDEX"
+    "test": "mocha generic-tester.js --domain $TEST_DOMAIN --owner $TEST_OWNER --repo $TEST_REPO --branch $TEST_BRANCH --index $TEST_INDEX",
+    "test:diff": "mocha diff-tests.js --domain $TEST_DOMAIN --owner $TEST_OWNER --repo $TEST_REPO --branch $TEST_BRANCH --index $TEST_INDEX"
   },
   "mocha": {
     "reporter": "mocha-multi-reporters",
