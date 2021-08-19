@@ -336,9 +336,8 @@ workflows:
             - init_smoketests
     - finalize_smoketests:
         requires:
-            - run_generic_smoketests
             - run_diff_tests
-#            - adobe/helix-example-basic#test-code
-#            - adobe/ferrumjsorg
-#            - adobe/theblog-tests
+            - adobe/pages
+            - adobe/theblog
+            - adobe/spark-website
 
