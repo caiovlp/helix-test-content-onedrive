@@ -5,7 +5,8 @@
   "main": "generic-tester.js",
   "license": "Apache-2.0",
   "scripts": {
-    "test": "mocha generic-tester.js -t 5000 --domain $TEST_DOMAIN --owner $TEST_OWNER --repo $TEST_REPO --branch $TEST_BRANCH --index $TEST_INDEX"
+    "test": "mocha generic-tester.js -t 5000 --domain $TEST_DOMAIN --owner $TEST_OWNER --repo $TEST_REPO --branch $TEST_BRANCH --index $TEST_INDEX",
+    "test:diff": "mocha diff.test.js -t 5000 --domain $TEST_DOMAIN --owner $TEST_OWNER --repo $TEST_REPO --branch $TEST_BRANCH --index $TEST_INDEX"
   },
   "mocha": {
     "reporter": "mocha-multi-reporters",
@@ -20,5 +21,12 @@
     "mocha-junit-reporter": "2.0.0",
     "mocha-multi-reporters": "1.5.1",
     "yargs": "16.2.0"
+  },
+  "devDependencies": {
+    "@adobe/helix-fetch": "2.4.2",
+    "@adobe/helix-shared-dom": "1.0.6",
+    "@adobe/helix-shared-process-queue": "1.0.0",
+    "fs-extra": "10.0.0",
+    "sanitize-filename": "1.6.3"
   }
 }
