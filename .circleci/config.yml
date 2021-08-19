@@ -284,9 +284,9 @@ jobs:
 
       - run:
           name: Run Helix Page Diff tests
-          command: npm run test:diff
-          environment:
-              MOCHA_FILE: junit/tests-results-run_diff_tests.xml
+          command: >
+            env MOCHA_FILE='/home/circleci/project/junit/tests-results-run_diff_tests.xml'
+            npm run test:diff
           working_directory: .tests
 
       - store_test_results:
