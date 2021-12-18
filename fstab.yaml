@@ -1,2 +1,3 @@
-  mountpoints:
+mountpoints:
+    /g: https://drive.google.com/drive/folders/1N2zij7EMeS95cIFiRuxfjY0OxllX8my1
     /: https://adobe.sharepoint.com/sites/cg-helix/Shared%20Documents/helix-pages-smoke-tests
