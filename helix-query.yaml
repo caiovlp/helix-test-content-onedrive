@@ -3,7 +3,7 @@ version: 1
 
 indices:
   site:
-    target: '/query-index.xlsx'
+    target: '/query-index.json'
     properties:
       author:
         select: head > meta[name="author"]
